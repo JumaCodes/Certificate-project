@@ -1,0 +1,13 @@
+/* Target the email input */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  background-color: #ffffff !important; /* Set the background color to white */
+  color: #333; /* Set the text color to your preferred color */
+}
+
+/* Target the password input */
+input:-webkit-autofill[type=password],
+input:-webkit-autofill[type=password]:focus {
+  background-color: #ffffff !important;
+  color: #333;
+}
