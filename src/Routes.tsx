@@ -14,7 +14,9 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<SignIn />} />
-        <Route path="/register/verify-email" element={<VerifyEmail />} />
+        
+        {/* <Route path="/register/verify-email" element={<VerifyEmail />} /> */}
+
         {/* <Route path="/post" element={<Post />} /> */}
         <Route path="/analytics" element={<Analytics
           avatar={UserProfile}

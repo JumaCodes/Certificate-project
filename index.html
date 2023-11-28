@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <h1>Create Post</h1>
+    <form>
+        <input type="text" name="first_name"><br />
+        <input type="text" name="email"><br />
+        <input type="file" name="profile"><br />
+        <textarea name="description"></textarea><br />
+        <button>Submit</button>
+    </form>
+
+    <script>
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent HTML submission
+
+            // Create payload of type multipart/form-data (awlays of this type when using the FormData() constructor):
+            const fd = new FormData(form);
+
+
+            var bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTU0NzE1ZDQxMGU0MjYwMTg2MzhjYzQiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMDM1MTgxMywiZXhwIjoxNzAwMzU1NDEzfQ.-kKmAiiW55B6ncyzPiTH2_5Oe3uxWBiMt31OZ2jKJ3A";
+            // Convert to URL-encoded string:
+            const urlEncoded = new URLSearchParams(fd).toString();
+
+            fetch('http://localhost:8000/login', {
+                method: "POST",
+                body: urlEncoded,
+                // just 'fd' for multipart/form-data
+                headers: {
+                    // 'Authorization': 'Bearer ' + bearerToken,
+                    // 'Content-Type': 'multipart/form-data',
+                     'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            })
+
+        })
+    </script>
+    <!-- <script>
+        $("form").submit((e) => {
+            e.preventDefault();
+            var formData = new FormData(document.querySelector('form'));
+            let urlEncoded = new URLSearchParams(formData).toString();
+
+            var bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTU0NzE1ZDQxMGU0MjYwMTg2MzhjYzQiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMDM0MTQ5MywiZXhwIjoxNzAwMzQ1MDkzfQ.eHqxyrIHS-T59GCnP0Db6gLkIuSf8_PzapGmgwAjFfI";
+
+
+            fetch("http://localhost:8000/create-post", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Authorization': 'Bearer ' + bearerToken,
+                    // 'Content-Type': 'multipart/form-data',
+                    //  'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            });
+
+            // console.log(urlEncoded)
+            // $.ajax({
+            //     url: "http://localhost:8000/create-post",
+            //     method: "POST",
+            //     data: formData,
+            //     processData : false,
+            //     contentType: false,
+            //     headers: {
+            //         'Authorization': 'Bearer ' + bearerToken,
+            //         // 'Content-Type': 'application/x-www-form-urlencoded',
+            //     },
+            //     success: function (response) {
+            //         console.log(response)
+            //     }
+            // })
+        })
+    </script> -->
+</body>
+
+</html>

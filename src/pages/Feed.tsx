@@ -142,7 +142,7 @@ const Feed = () => {
             views="2980 views"
           />
 
-          <Post
+          {/* <Post
             avatar={UserProfile2}
             name="Oluwatobi Ogunniyi"
             userInfo="Software developer"
@@ -176,7 +176,7 @@ const Feed = () => {
             like="120"
             viewsIcon={Views}
             views="2980 views"
-          />
+          /> */}
         </div>
       </div>
     </DashboardLayout>
