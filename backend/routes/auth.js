@@ -43,7 +43,7 @@ router.post("/login", LoginValidation, inputValidationResult, async (req, res) =
                 roles: user_login.join_as
             };
             const token = jwt.sign(userData, secretKey, { expiresIn: '1h' });
-            return res.status(422).json({ status: "success", message: "Successfully logged in", token });
+            return res.status(200).json({ status: "success", message: "Successfully logged in", token });
         }
     } else {
         res.json({ status: "error", message: "Invalid login details" });

@@ -47,6 +47,6 @@ Content-Type:  application/json
     "password" : "password"
 }
 ###
-POST http://localhost:8000/check-is-auth
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTY2MTVkZWY3OWIxODk5NzI5NWZmYjAiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMTE4OTA4NiwiZXhwIjoxNzAxMTkyNjg2fQ.D_UWT60wMEkzHrSIBW8lKGSYIsuIQBbhrf8apci5BzM
+GET  http://localhost:8000/all-posts
 Content-Type:  application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTY2MTVkZWY3OWIxODk5NzI5NWZmYjAiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMTE4OTA4NiwiZXhwIjoxNzAxMTkyNjg2fQ.D_UWT60wMEkzHrSIBW8lKGSYIsuIQBbhrf8apci5BzM

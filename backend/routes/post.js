@@ -7,7 +7,7 @@ const CreatePostValidator = require('../validations/CreatePostValidator');
 const Post = require('../models/Post');
 const LikePost = require('../models/LikePost');
 const { storage } = require('../Helper');
-
+const User = require("../models/User");
 
 
 router.get("/get-post/:id", checkIfPostExist, async function (req, res) {
@@ -17,7 +17,17 @@ router.get("/get-post/:id", checkIfPostExist, async function (req, res) {
 
 
 router.get("/all-posts", async function (req, res) {
-    let posts = await Post.find({}).sort({ created_at: -1 });
+    let posts = await Post.aggregate([
+        {
+          $lookup: {
+            from: 'users', 
+            localField: 'id', 
+            foreignField: 'user_id',
+            as: 'user', 
+          },
+        },
+      ]).sort({ created_at: -1 })
+   
     res.json({ status: "success", message: posts })
 });
 
