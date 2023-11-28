@@ -1,0 +1,52 @@
+
+GET http://localhost:8000/test
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTU0NzE1ZDQxMGU0MjYwMTg2MzhjYzQiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMDM0MzgxMiwiZXhwIjoxNzAwMzQ3NDEyfQ.YF3RBPq_9FC8QjDP3k980KseRt149Q0RKBum-FV7HEY
+
+###
+GET  http://localhost:8000/all-posts-by-auth-user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTU0NzE1ZDQxMGU0MjYwMTg2MzhjYzQiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMDM0Nzk0OCwiZXhwIjoxNzAwMzUxNTQ4fQ.6GI2jEyDOafu6M5V2Wn-vG_XtFOitK65acOEZV9YU8o
+Content-Type:  application/json
+
+###
+GET  http://localhost:8000/all-posts
+Content-Type:  application/json
+
+###
+GET http://localhost:8000/get-post/65594ae2090726e647b4a90a
+Content-Type:  application/json
+
+###
+GET http://localhost:8000/delete-post/65594ae2090726e647b4a90a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTU0NzE1ZDQxMGU0MjYwMTg2MzhjYzQiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMDM0Nzk0OCwiZXhwIjoxNzAwMzUxNTQ4fQ.6GI2jEyDOafu6M5V2Wn-vG_XtFOitK65acOEZV9YU8o
+Content-Type:  application/json
+
+###
+POST http://localhost:8000/like-post/65594ad4090726e647b4a908
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTU0NzE1ZDQxMGU0MjYwMTg2MzhjYzQiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMDM1MTgxMywiZXhwIjoxNzAwMzU1NDEzfQ.-kKmAiiW55B6ncyzPiTH2_5Oe3uxWBiMt31OZ2jKJ3A
+Content-Type:  application/json
+
+
+###
+POST http://localhost:8000/register
+Content-Type:  application/json
+
+{
+    "first_name": "Ramon",
+    "last_name": "Adeyemi",
+    "join_as" : "writer",
+    "email" : "ramon@gmail.com",
+    "password" : "password"
+}
+
+###
+POST http://localhost:8000/login
+Content-Type:  application/json
+
+{
+    "email" : "ramon@gmail.com",
+    "password" : "password"
+}
+###
+POST http://localhost:8000/check-is-auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTY2MTVkZWY3OWIxODk5NzI5NWZmYjAiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMTE4OTA4NiwiZXhwIjoxNzAxMTkyNjg2fQ.D_UWT60wMEkzHrSIBW8lKGSYIsuIQBbhrf8apci5BzM
+Content-Type:  application/json
