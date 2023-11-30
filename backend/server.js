@@ -7,12 +7,14 @@ const PostRoute = require('./routes/post');
 const { authenticateToken } = require('./middleware/AppMiddleWare');
 const app = express();
 
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
 app.use(cors());
+app.use(express.static('./public'));
+
 const PORT = 8000;
- 
+
 
 // CONNECT DATABASE
 const mongodbURL = "mongodb+srv://ramondevbusiness:haSErDnES03TnaWN@cluster0.9i7blui.mongodb.net/chatter_app?retryWrites=true&w=majority";

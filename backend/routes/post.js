@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const {ObjectId}  = require("mongodb");
 const router = express.Router();
 const { authenticateToken, validateFile, inputValidationResult, checkIfPostExist } = require('../middleware/AppMiddleWare');
 const CreatePostValidator = require('../validations/CreatePostValidator');
@@ -19,10 +20,10 @@ router.get("/get-post/:id", checkIfPostExist, async function (req, res) {
 router.get("/all-posts", async function (req, res) {
     let posts = await Post.aggregate([
         {
-          $lookup: {
+          $lookup: { 
             from: 'users', 
-            localField: 'id', 
-            foreignField: 'user_id',
+            localField: 'user_id', 
+            foreignField: '_id',
             as: 'user', 
           },
         },
@@ -32,7 +33,6 @@ router.get("/all-posts", async function (req, res) {
 });
 
 
-
 router.get("/all-posts-by-auth-user", authenticateToken, async function (req, res) {
     let posts = await Post.find({ user_id: req.user.sub }).sort({ created_at: -1 });
     res.json({ status: "success", message: posts })
@@ -40,9 +40,9 @@ router.get("/all-posts-by-auth-user", authenticateToken, async function (req, re
 
 router.post("/create-post", authenticateToken, storage().single("profile"), CreatePostValidator, inputValidationResult, validateFile, function (req, res) {
     let post = new Post({
-        title: req.body.title.trim(),
-        user_id: req.user.sub,
-        description: req.body.description.trim(),
+        title: req.body.title,
+        user_id: new ObjectId(req.user.sub),
+        description: req.body.description,
         image: req.file.filename,
     });
     post.save();

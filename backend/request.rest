@@ -21,6 +21,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTU0NzE1Z
 Content-Type:  application/json
 
 ###
+POST http://localhost:8000/create-post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTU0NzE1ZDQxMGU0MjYwMTg2MzhjYzQiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMTM0MTAxNywiZXhwIjoxNzAxMzQ0NjE3fQ.2KiYijmnk-y2xCvzKKwjhXrxgP_X4SDVL3dxDdWgotU
+Content-Type:  application/json
+
+{
+    "title" : "Post 1",
+    "description" : "My first post"
+}
+
+###
 POST http://localhost:8000/like-post/65594ad4090726e647b4a908
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTU0NzE1ZDQxMGU0MjYwMTg2MzhjYzQiLCJyb2xlcyI6IndyaXRlciIsImlhdCI6MTcwMDM1MTgxMywiZXhwIjoxNzAwMzU1NDEzfQ.-kKmAiiW55B6ncyzPiTH2_5Oe3uxWBiMt31OZ2jKJ3A
 Content-Type:  application/json
