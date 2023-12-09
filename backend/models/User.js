@@ -22,7 +22,10 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-    }
+    },
+    verify_token:{
+        type : String
+    },
 });
 
 
